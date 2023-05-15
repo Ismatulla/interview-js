@@ -131,3 +131,21 @@ memoization(20)
 memoization(20)
 // first looks at cache ,if it is already calculated it does not recalculate it ,otherwise will calculate ,so it will improve performance of code
 
+
+// promise
+const promise = new Promise(
+  (resolve) => {
+    setTimeout(() => {
+      resolve("I'm a Promise!");
+    }, 100);
+  },
+  (reject) => {
+    reject('rejected')
+  }
+);
+
+promise.then((value) => console.log(value)).catch(err => console.log(err))
+
+// javascript is single-thread language which means it executes one thing at a time , another words it executes current line of code before moving to the next one
+
+// event delegation is process at which the parent of the elements which are going to have event listener attached to their container 
