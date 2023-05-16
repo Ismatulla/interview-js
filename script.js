@@ -149,3 +149,58 @@ promise.then((value) => console.log(value)).catch(err => console.log(err))
 // javascript is single-thread language which means it executes one thing at a time , another words it executes current line of code before moving to the next one
 
 // event delegation is process at which the parent of the elements which are going to have event listener attached to their container 
+
+
+// how to check if string has particular substring
+
+const str = 'ismatulla'
+const substr = 'ismat'
+console.log(str.includes(substr))
+console.log(str.indexOf(substr))
+
+
+// how can we validate form -(it can be validated by using regex,but it is not recommended because javascript can be disabled in frontend)
+
+// great use case question !! 
+//  how to check if certain KEY i aailable in object or not;
+const object = { a: 1, b: 2, c: 3, d: 4 };
+// first approach
+console.log("a" in object) // returns true !! great use case :)))
+// 2nd approach
+const check = object.hasOwnProperty('a')
+console.log(check)
+
+// 128
+// What is arguments object;
+function sum() {
+  let total = 0;
+  for (let i = 0; i < arguments.length; i++) {
+    total += arguments[i]
+  }
+  console.log(typeof arguments)  // object but looks like array and can be accessible inside of any function 
+  return total
+}
+console.log(sum(1, 2, 3, 4, 5))
+
+// how you can write multiline strng 
+// by using backslash
+const name = 'ismatulla \
+kuyliev\
+kuvondik \
+ugli'
+
+// 140  can we define properties in function =>yes we can ! because functions are also objects
+
+function fn() { }
+fn.names = 'Barry'
+fn.sureName = "Garry"
+console.log(fn.sureName)
+
+// 143 javascript break and continue difference inside of for loop 
+for (let i = 0; i < 10; i++) {
+  if (i === 5) {              
+    continue  // agar continue quysak 1,2,3,4,6,7,8,9,10 buladi
+    break //  1,2,3,4 buladida toxtaydi chunki 5 ga teng bulgan xolatda tuxta deb aytildi
+  }
+  console.log(i)
+}
