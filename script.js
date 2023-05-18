@@ -270,5 +270,51 @@ arraySum(arr)
 function spreadChec(x, y, z) {
   console.log(x + y + z)
 }
-const numbers = [1, 2, 3,5,6,7]
+const numbers = [1, 2, 3, 5, 6, 7]
 spreadChec(...numbers)
+
+
+// how to determine 2 values are the same or not using Object 
+
+// we can use Object.is method 
+
+const detectLang = Object.is({}, {});
+console.log(detectLang)
+
+
+// how to compy properties of one object from one to another 
+
+const firstObject = { a: 1, b: 2 };
+const secondObject = { c: 3, d: 4 }
+
+// copying props of one object to another one 
+const allMerged = Object.assign(firstObject, secondObject)
+console.log(allMerged)
+console.log(firstObject); // here first object already changed because we inserted second object to first object so it already changed to {a:1,b:2,c:3,d:4}
+console.log(secondObject) // bu uzgarmaydi chunki bu birinchi objectno ichiga qushib yuborildi va birinchi object modify buldi , lekin 2-object bir xil qoldi {c:3,d:4}
+
+// difference between Object.seal() and Object.freeze() method
+// you may change property in object.seal whereas you can't change anything with Object.freeze() and also in both method you cant add new properties to the object example const obj={a:1,b:2} Object.freeze(obj)=> obj.a=2 does not change anything Object.seal(obj) obj.a=2 DOES change a but in both cases we can't add props to object
+
+// How do you get key and values of object 
+
+// const obj = {
+//   a: 'Good morning',
+//   b: 100
+// }
+// console.log(Object.entries(obj))
+// for (let [key, value] of Object.entries(obj)) {
+//   console.log(key, value)
+// }
+
+//  What is purpose of uneval()
+//  uneval() gives string representation of any value for example 
+const num = 1; uneval(num) = '1'; // function name(){};  uneval(name)=>"function name(){}" 
+
+// how do you print current page content (it is linke printing the page with printenr ) =>window.print() used;
+
+var msg = uneval(function greeting() {
+  console.log("Hello, Good morning");
+});
+var greeting = eval(msg);
+greeting(); // returns "Hello, Good morning"
