@@ -309,12 +309,87 @@ console.log(secondObject) // bu uzgarmaydi chunki bu birinchi objectno ichiga qu
 
 //  What is purpose of uneval()
 //  uneval() gives string representation of any value for example 
-const num = 1; uneval(num) = '1'; // function name(){};  uneval(name)=>"function name(){}" 
+// const num = 1; uneval(num) = '1'; // function name(){};  uneval(name)=>"function name(){}" 
 
 // how do you print current page content (it is linke printing the page with printenr ) =>window.print() used;
 
-var msg = uneval(function greeting() {
-  console.log("Hello, Good morning");
-});
-var greeting = eval(msg);
-greeting(); // returns "Hello, Good morning"
+// var msg = uneval(function greeting() {
+//   console.log("Hello, Good morning");
+// });
+// var greeting = eval(msg);
+// greeting(); // returns "Hello, Good morning"
+
+
+// How do you define property in object constructor
+// const newObject = {};
+
+// Object.defineProperty(newObject, "newProperty", {
+//   value: 100,
+//   writable: false
+// })
+// console.log(newObject);
+
+// const nextObj = {}
+// Object.defineProperty(nextObj, 'name', {
+//   value: "Ismatulla"
+// })
+// console.log(nextObj);
+
+let msg = 'hello world';
+
+function checkPrecedence() {
+  msg = "Welcome!";
+}
+console.log(msg)
+checkPrecedence();
+
+// getters and setters
+
+const data = {
+  model: 'BMW',
+  maxSpeed: '260km/h',
+  consumption: '10 L',
+  get result() {
+    console.log(`this is a ${this.model} has speed of ${this.maxSpeed}`)
+  },
+  set result(speed) {
+    console.log(`this is a ${this.model} has speed of ${speed}`)
+  }
+}
+data.result
+data.result = '300km/h'
+
+// can i use getters and setters using defineProperty;
+// yes of course !!
+// const counter = { number: 0 };
+// Object.defineProperty(counter, 'increment', {
+//   get: function () {
+//     this.number++;
+//     return this.number
+//   }
+// })
+// console.log(counter.increment);
+
+const user = {
+  name: "Brad",
+  location: "LA",
+  age: 28,
+  jobRole: {
+    prevStatus: "Programmer",
+    currentStatus: "Team Lead"
+  }
+}
+// const shallowCopy = Object.assign({}, user);
+// shallowCopy.jobRole.currentStatus = 'Teach Lead';
+// shallowCopy.name = "Garry"
+// console.log(user.jobRole.currentStatus);  'Teach Lead'
+// console.log(shallowCopy.jobRole.currentStatus)   Teach Lead because shallowCopy still referencing jobRole object inside of user thats why both gives same result
+
+
+const result = JSON.parse(JSON.stringify(user))
+result.jobRole.currentStatus = 'Teach Lead'
+console.log(result); //here it returns Teach Lead because nested object already copied out
+console.log(user) // here remains Team Lead becuase nested object which is inside of result is not referencing to the user
+
+// above example is question for middle level developers which is for me !
+
