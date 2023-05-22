@@ -393,3 +393,11 @@ console.log(user) // here remains Team Lead becuase nested object which is insid
 
 // above example is question for middle level developers which is for me !
 
+class Model {
+  constructor() {
+    this.name = 'Ismatulla'
+  }
+}
+
+const name = new Model()
+console.log(name.name)
